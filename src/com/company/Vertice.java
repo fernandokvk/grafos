@@ -7,6 +7,14 @@ public class Vertice {
     int num;
     List<Vertice> adj;
     int grauSaida;
+    int grauEntrada;
+    int d;
+    Vertice pai;
+    int cor;
+
+    public Vertice(){
+
+    }
 
     public Vertice(int num) {
         this.num = num;

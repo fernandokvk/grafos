@@ -7,15 +7,25 @@ public class Graus {
     public static void main(String[] args) {
         int vert, arestas;
         int varesta1, varesta2;
+        /*
         Scanner leitura = new Scanner(System.in); //novo
         System.out.println("Digite a quantidade de vertices: ");
         vert = leitura.nextInt();
 
         System.out.println("Digite a quantidade de arestas: ");
         arestas = leitura.nextInt();
+        */
 
-        Grafo g = new Grafo(vert);
+        Grafo g = new Grafo(6);
+        g.addAresta(0, 4);
+        g.addAresta(0, 1);
+        g.addAresta(1, 4);
+        g.addAresta(1, 2);
+        g.addAresta(2, 3);
+        g.addAresta(3, 4);
+        g.addAresta(3, 5);
 
+        /*
         for (int i=1; i<=arestas; i++){
             System.out.println("Digite o vértice 1 da aresta "+i+": ");
             varesta1 = leitura.nextInt();
@@ -25,25 +35,16 @@ public class Graus {
             g.addAresta(varesta1, varesta2);
 
         }
+        */
+        //calcularGrausDeSaida(g);
+        Buscas buscas = new Buscas();
+        buscas.bfs(g, g.vertices[0]);
 
-        calcularGrausDeSaida(g);
-        mostrarGrausDeSaida(g);
+
+        //
+        //mostrarGrausDeSaida(g);
 
     }
-        /*
-        Grafo g = new Grafo(6);
-        g.addAresta(0, 1);
-        g.addAresta(0, 3);
-        g.addAresta(1, 4);
-        g.addAresta(2, 4);
-        g.addAresta(2, 5);
-        g.addAresta(3, 1);
-        g.addAresta(4, 3);
-        g.addAresta(5, 5);
-
-        calcularGrausDeSaida(g);
-        mostrarGrausDeSaida(g);
-    }*/
 
     public static void calcularGrausDeSaida(Grafo g) {
         for (Vertice v : g.vertices) {
