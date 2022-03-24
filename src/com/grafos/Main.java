@@ -1,7 +1,6 @@
 package com.grafos;
 
-import com.grafos.implementacoes.Graph;
-import com.grafos.implementacoes.GraphsLoader;
+import com.grafos.implementacoes.*;
 
 import java.util.ArrayList;
 
@@ -12,8 +11,12 @@ public class Main {
     public static void main(String[] args) {
 
         graphs = GraphsLoader.loadAllFiles();
-        System.out.println("oi");
 
+        for (Graph g:
+             graphs) {
+            Util.calcularGraus(g);
+            System.out.println(g.toString());
+        }
     }
 
 }

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Graph {
-    public ArrayList<Vertex> vertexesArray = new ArrayList<>();
-    public int size;
     public String name;
+    public int size;
+    public ArrayList<Vertex> vertexesArray = new ArrayList<>();
 
     public Graph(String name, int size) {
         this.name = name;
@@ -22,8 +22,8 @@ public class Graph {
     public static class Vertex {
         public String name;
         public int depth;
-        public int grauSaida;
-        public int grauEntrada;
+        public int grauSaida = 0;
+        public int grauEntrada = 0;
         HashMap<Vertex, Integer> listaAdj = new HashMap<>();
         Vertex pai;
         Color color;
@@ -35,9 +35,10 @@ public class Graph {
             this.name = name;
         }
 
-        @Override
+
+                @Override
         public String toString() {
-            return "Vertex{" +
+            return '\n'+"Vertex{" +
                     "name='" + name + '\'' +
                     ", depth=" + depth +
                     ", grauSaida=" + grauSaida +
@@ -50,27 +51,21 @@ public class Graph {
 
     public void addEdge(Vertex u, Vertex v, int weight) {
 
-
         if (vertexesArray.stream().noneMatch(t -> t.name.equals(u.name))) vertexesArray.add(u);
         if (vertexesArray.stream().noneMatch(t -> t.name.equals(v.name))) vertexesArray.add(v);
 
-        for (Vertex k:
-             vertexesArray) {
-
-            if (k.name.equals(u.name)){
-                k.listaAdj.put(v ,weight);
+        for (Vertex k : vertexesArray) {
+            if (k.name.equals(u.name)) {
+                k.listaAdj.put(v, weight);
             }
-
         }
-
-
-
-
-//        else {
-//            vertexesArray.stream().peek(t -> t.name.equals(u.name)).findAny().get().listaAdj.put(v, weight);
-//        }
-
-
     }
 
+    @Override
+    public String toString() {
+        return '\n'+"Graph{" +
+                "name='" + name + '\'' +
+                ", size=" + size +"}"+
+                " vertexesArray:"+'\n' + vertexesArray.toString();
+    }
 }
