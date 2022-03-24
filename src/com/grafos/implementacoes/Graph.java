@@ -51,11 +51,24 @@ public class Graph {
     public void addEdge(Vertex u, Vertex v, int weight) {
 
 
-        if (vertexesArray.stream().noneMatch(t -> t.name.equals(u.name))) {
-            vertexesArray.add(u);
-        } else {
-            vertexesArray.stream().peek(t -> t.name.equals(u.name)).findAny().get().listaAdj.put(v, weight);
+        if (vertexesArray.stream().noneMatch(t -> t.name.equals(u.name))) vertexesArray.add(u);
+        if (vertexesArray.stream().noneMatch(t -> t.name.equals(v.name))) vertexesArray.add(v);
+
+        for (Vertex k:
+             vertexesArray) {
+
+            if (k.name.equals(u.name)){
+                k.listaAdj.put(v ,weight);
+            }
+
         }
+
+
+
+
+//        else {
+//            vertexesArray.stream().peek(t -> t.name.equals(u.name)).findAny().get().listaAdj.put(v, weight);
+//        }
 
 
     }
