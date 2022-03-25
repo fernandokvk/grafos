@@ -4,11 +4,8 @@ import java.util.ArrayList;
 
 public class Util {
 
-    ArrayList<Graph.Vertex> Q;
+    static ArrayList<Graph.Vertex> Q = new ArrayList<>();
 
-    public Util() {
-        Q = new ArrayList<>();
-    }
 
     public static void calcularGraus(Graph g) {
         calcularGrauDeEntrada(g);
@@ -23,16 +20,16 @@ public class Util {
 
     public static void calcularGrauDeEntrada(Graph g) {
 
-        for (Graph.Vertex u : g.vertexesArray) {
-            for (Graph.Vertex v: u.listaAdj.keySet()) {
-                v.grauEntrada+=1;
-            }
+        for (Graph.Vertex u: g.vertexesArray){
+
+           u.listaAdj.keySet().forEach(t -> t.grauEntrada++);
+
         }
 
     }
 
 
-    public void dfs(Graph grafo) {
+    public static void dfs(Graph grafo) {
 
         int tempo = 0;
 
@@ -47,14 +44,14 @@ public class Util {
         }
     }
 
-    private void dfsVisit(Graph.Vertex v, int tempo) {
+    private static void dfsVisit(Graph.Vertex v, int tempo) {
         tempo++;
         v.color = Graph.Color.GRAY;
-        System.out.println(v.name + 1);
         v.depth = tempo;
 
         for (Graph.Vertex u : v.listaAdj.keySet()) {
             if (u.color == Graph.Color.WHITE) {
+                System.out.println(v.name+">"+u.name);
                 u.pai = v;
                 dfsVisit(u, tempo);
             }
@@ -64,7 +61,7 @@ public class Util {
         tempo++;
     }
 
-    public void bfs(Graph grafo, Graph.Vertex origem) {
+    public static void bfs(Graph grafo, Graph.Vertex origem) {
 
         for (Graph.Vertex v : grafo.vertexesArray) {
             if (v != origem) {

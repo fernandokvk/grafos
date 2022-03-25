@@ -14,9 +14,11 @@ public class Main {
 
         for (Graph g:
              graphs) {
-            Util.calcularGraus(g);
-            System.out.println(g.toString());
+            if (g.name.equals("grafo-5")){
+                Util.dfs(g);
+            }
         }
+
     }
 
 }

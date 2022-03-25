@@ -1,0 +1,10 @@
+NOME: grafo-6
+TAMANHO: 6
+<NOME-VERTICE,VERTICE-ADJ,PESO>
+r,a,10
+r,s,10
+s,t,10
+t,x,10
+x,y,10
+y,z,10
+r,b,10
