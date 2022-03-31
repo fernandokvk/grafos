@@ -1,6 +1,8 @@
 package com.grafos.implementacoes;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 
 public class Util {
 
@@ -20,14 +22,13 @@ public class Util {
 
     public static void calcularGrauDeEntrada(Graph g) {
 
-        for (Graph.Vertex u: g.vertexesArray){
+        for (Graph.Vertex u : g.vertexesArray) {
 
-           u.listaAdj.keySet().forEach(t -> t.grauEntrada++);
+            u.listaAdj.keySet().forEach(t -> t.grauEntrada++);
 
         }
 
     }
-
 
     public static void dfs(Graph grafo) {
 
@@ -48,14 +49,24 @@ public class Util {
         tempo++;
         v.color = Graph.Color.GRAY;
         v.depth = tempo;
-
+        HashMap<Integer, Graph.Vertex> mapa = new HashMap<>();
         for (Graph.Vertex u : v.listaAdj.keySet()) {
-            if (u.color == Graph.Color.WHITE) {
-                System.out.println(v.name+">"+u.name);
-                u.pai = v;
-                dfsVisit(u, tempo);
+               mapa.put(v.listaAdj.get(u), u);
+            if (!mapa.isEmpty()){
+                int minDist = Collections.min(mapa.keySet());
+                Graph.Vertex minVertex = mapa.get(minDist);
+
+                if (minVertex.color == Graph.Color.WHITE) {
+                    System.out.println(v.name + ">" + minVertex.name);
+                    minVertex.pai = v;
+                    dfsVisit(minVertex, tempo);
+                }
             }
         }
+
+
+
+
 
         v.color = Graph.Color.BLACK;
         tempo++;
