@@ -3,7 +3,9 @@ package com.grafos.implementacoes;
 public class MinimalPathAlgorithms {
     private Graph g;
 
-
+    public MinimalPathAlgorithms(Graph g) {
+        this.g = g;
+    }
 
     private static void initializeSingleSource(Graph g, Graph.Vertex s) {
         for (Graph.Vertex v : g.vertexesArray) {
@@ -34,5 +36,20 @@ public class MinimalPathAlgorithms {
         }
 
     }
+
+    public void bellman_ford(Graph g, Graph.Vertex s){
+        initializeSingleSource(g, s);
+        relaxGraph(g);
+
+
+        g.vertexesArray.forEach(u -> {
+            u.listaAdj.keySet().forEach(v -> {
+                if (v.depth > u.depth + u.listaAdj.get(v))
+                    v.depth = u.depth + u.listaAdj.get(v);
+            });
+        });
+
+    }
+
 
 }
