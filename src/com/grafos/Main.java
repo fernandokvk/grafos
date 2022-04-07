@@ -14,10 +14,11 @@ public class Main {
 
         for (Graph g :
                 graphs) {
-            if (g.name.equals("grafo-3")) {
+            if (g.name.equals("grafo-5")) {
                 MinimalPathAlgorithms mpa = new MinimalPathAlgorithms(g);
-                mpa.bellman_ford(g, g.vertexesArray.get(0));
-                System.out.println(g);
+//                mpa.bellman_ford(g, g.vertexesArray.get(0));
+                Util.bfs(g, g.vertexesArray.get(0));
+//                System.out.println(g);
 
             }
         }

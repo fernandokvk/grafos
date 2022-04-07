@@ -35,7 +35,9 @@ public class Util {
         int tempo = 0;
 
         for (Graph.Vertex v : grafo.vertexesArray) {
+            v.depth = Integer.MAX_VALUE;
             v.color = Graph.Color.WHITE;
+
         }
 
         for (Graph.Vertex v : grafo.vertexesArray) {
@@ -76,7 +78,6 @@ public class Util {
 
         for (Graph.Vertex v : grafo.vertexesArray) {
             if (v != origem) {
-                v.depth = -1;
                 v.color = Graph.Color.WHITE;
             }
         }
