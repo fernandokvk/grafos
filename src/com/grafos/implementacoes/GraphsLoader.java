@@ -44,6 +44,17 @@ public class GraphsLoader {
             String[] line = sc.nextLine().split("[,]");
             Graph.Vertex u = new Graph.Vertex(line[0]);
             Graph.Vertex v = new Graph.Vertex(line[1]);
+
+
+            for (Graph.Vertex z: graph.vertexesArray
+            ) {
+                if (z.name.equals(u.name)) u = z;
+            }
+            for (Graph.Vertex z: graph.vertexesArray
+            ) {
+                if (z.name.equals(v.name)) v = z;
+            }
+
             int weight = Integer.parseInt(line[2]);
             graph.addEdge(u, v, weight);
         }

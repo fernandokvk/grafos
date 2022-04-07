@@ -35,17 +35,21 @@ public class Graph {
             this.name = name;
         }
 
-
-                @Override
+        @Override
         public String toString() {
-            return '\n'+"Vertex{" +
+            return "Vertex{" +
                     "name='" + name + '\'' +
                     ", depth=" + depth +
                     ", grauSaida=" + grauSaida +
                     ", grauEntrada=" + grauEntrada +
-                    ", pai=" + pai +
+                    ", pai=" + pai() +
                     ", color=" + color +
                     '}';
+        }
+
+        public String pai(){
+            if (pai != null) return pai.name;
+            return null;
         }
     }
 
@@ -66,6 +70,17 @@ public class Graph {
         return '\n'+"Graph{" +
                 "name='" + name + '\'' +
                 ", size=" + size +"}"+
-                " vertexesArray:"+'\n' + vertexesArray.toString();
+                " vertexesArray:"+'\n' + arrVertex();
+    }
+
+    public String arrVertex(){
+        String str = "";
+
+        for (Graph.Vertex v: vertexesArray
+             ) {
+            str = str.concat(v.toString() + '\n');
+
+        }
+        return str;
     }
 }
