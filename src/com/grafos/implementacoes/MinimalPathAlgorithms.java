@@ -17,6 +17,7 @@ public class MinimalPathAlgorithms {
     private static void relax(Graph.Vertex u, Graph.Vertex v) {
 
         if (u.listaAdj.containsKey(v)){
+            if (u.depth == Integer.MAX_VALUE) u.depth = 0;
             if (v.depth > u.depth + u.listaAdj.get(v)) {
                 v.depth = u.depth + u.listaAdj.get(v);
                 v.pai = u;
