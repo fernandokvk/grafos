@@ -11,18 +11,35 @@ public class Main {
     public static void main(String[] args) {
 
         graphs = GraphsLoader.loadAllFiles();
-//        testes_1();
-        testes_2();
+//        testes_bfs_dfs_bellman();
+//        testes_kruskal();
+//        testes_fordfulkerson();
     }
-    private static void testes_2(){
-        Graph graphA = loadGraph("grafo-6");
-//        Graph graphB = loadGraph("grafo-6");
+
+    private static void testes_fordfulkerson() {
+        Graph graphA = loadGraph("grafo-fluxo-1");
+        Graph graphB = loadGraph("grafo-fluxo-2");
+
+        FordFulkerson fordFulkerson = new FordFulkerson(graphA);
+        fordFulkerson.run();
+
+        fordFulkerson = new FordFulkerson(graphB);
+        fordFulkerson.run();
+    }
+
+
+    private static void testes_kruskal(){
+        Graph graphA = loadGraph("grafo-1");
+        Graph graphB = loadGraph("grafo-6");
 
         Kruskal kruskal = new Kruskal(graphA);
         kruskal.run();
+
+        kruskal = new Kruskal(graphB);
+        kruskal.run();
     }
 
-    private static void testes_1(){
+    private static void testes_bfs_dfs_bellman(){
         Graph graphA = loadGraph("grafo-3");
         Graph graphB = loadGraph("grafo-2");
 

@@ -25,6 +25,7 @@ public class Graph {
         public int grauSaida = 0;
         public int grauEntrada = 0;
         HashMap<Vertex, Integer> listaAdj = new HashMap<>();
+        HashMap<Vertex, Integer> capacity = new HashMap<>();
         Vertex pai;
         Color color;
 
