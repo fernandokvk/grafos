@@ -11,18 +11,26 @@ public class Main {
     public static void main(String[] args) {
 
         graphs = GraphsLoader.loadAllFiles();
-        testes();
+//        testes_1();
+        testes_2();
+    }
+    private static void testes_2(){
+        Graph graphA = loadGraph("grafo-6");
+//        Graph graphB = loadGraph("grafo-6");
+
+        Kruskal kruskal = new Kruskal(graphA);
+        kruskal.run();
     }
 
-    private static void testes(){
+    private static void testes_1(){
         Graph graphA = loadGraph("grafo-3");
         Graph graphB = loadGraph("grafo-2");
 
-        test(graphA);
-        test(graphB);
+        test_bfs_dfs_bellman(graphA);
+        test_bfs_dfs_bellman(graphB);
     }
 
-    private static void test(Graph g){
+    private static void test_bfs_dfs_bellman(Graph g){
         String divider = "---------------------------------------------------";
 
         MinimalPathAlgorithms mpa = new MinimalPathAlgorithms(g);

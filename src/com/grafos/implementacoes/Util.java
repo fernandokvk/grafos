@@ -3,6 +3,7 @@ package com.grafos.implementacoes;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class Util {
 
@@ -65,11 +66,6 @@ public class Util {
                 }
             }
         }
-
-
-
-
-
         v.color = Graph.Color.BLACK;
         tempo++;
     }
@@ -102,5 +98,12 @@ public class Util {
             u.color = Graph.Color.BLACK;
             System.out.println(u.name);
         }
+    }
+
+    public static boolean containsPair(List<Pair> list, Pair pair){
+        for (Pair p: list) {
+            if ((p.u == pair.u && p.v == pair.v) || (p.u == pair.v && p.v == pair.u)) return true;
+        }
+        return false;
     }
 }
