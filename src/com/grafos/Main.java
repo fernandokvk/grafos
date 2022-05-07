@@ -3,6 +3,8 @@ package com.grafos;
 import com.grafos.implementacoes.*;
 
 import java.util.ArrayList;
+//Alunos: Fernando Henrique Kuviatkovski RA:100285
+//        Gabriel Henrique Costanzi RA: 102573
 
 public class Main {
     public static ArrayList<Graph> graphs = new ArrayList<>();
@@ -14,7 +16,7 @@ public class Main {
 //        testes_bfs_dfs_bellman();
 //        testes_kruskal();
 //        testes_fordfulkerson();
-        test_floydwarshall();
+//        test_floydwarshall();
     }
 
     private static void testes_fordfulkerson() {
