@@ -14,6 +14,7 @@ public class Main {
 //        testes_bfs_dfs_bellman();
 //        testes_kruskal();
 //        testes_fordfulkerson();
+        test_floydwarshall();
     }
 
     private static void testes_fordfulkerson() {
@@ -64,6 +65,23 @@ public class Main {
         mpa.bellman_ford(g, g.vertexesArray.get(0));
         System.out.println(g);
 
+
+    }
+
+    private static void test_floydwarshall(){
+        Graph graphA = loadGraph("grafo-floyd-warshall-1");
+        Graph graphB = loadGraph("grafo-floyd-warshall-2");
+        String divider = "---------------------------------------------------";
+        
+        FloydWarshall floyd = new FloydWarshall(graphA);
+        System.out.println(divider);
+        System.out.println("Grafo 1 Floyd-Warshall: ");
+        floyd.run();
+
+        floyd = new FloydWarshall(graphB);
+        System.out.println(divider);
+        System.out.println("Grafo 2 Floyd-Warshall: ");
+        floyd.run();
 
     }
 
